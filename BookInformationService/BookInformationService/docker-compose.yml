@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  bookinformationservice:
+    image: my_bookinformationservice_image
+    container_name: my_bookinformationservice_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  postgresservice:
+    image: postgres:latest
+    container_name: my_postgres_container
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-1234}
+      POSTGRES_DB: ${POSTGRES_DB:-bookinformationdb}
+

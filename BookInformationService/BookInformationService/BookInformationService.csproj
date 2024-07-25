@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>3b2be1c3-0113-4e3e-935c-021b17b1db39</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Asp.Versioning.Http" Version="8.1.0" />
+		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+		<PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+		<PackageReference Include="Serilog" Version="4.0.0" />
+		<PackageReference Include="Serilog.Settings.Configuration" Version="8.0.2" />
+		<PackageReference Include="Serilog.Sinks.Email" Version="4.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="certificate\" />
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties appsettings_1development_1json__JsonSchema="{" /></VisualStudio></ProjectExtensions>
+
+</Project>

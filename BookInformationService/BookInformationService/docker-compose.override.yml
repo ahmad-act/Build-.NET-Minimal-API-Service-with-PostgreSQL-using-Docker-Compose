@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  bookinformationservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=4100
+      - ASPNETCORE_HTTPS_PORTS=4101
+      - ASPNETCORE_URLS="http://+:4100;https://+:4101;"
+      # Configure the application to use the certificate for https
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/mycert.crt
+      - ASPNETCORE_Kestrel__Certificates__Default__KeyPath=/app/mycert.key
+    ports:
+      - "4100:4100"
+      - "4101:4101"
+    networks:
+      - my_bookinfo_network
+
+  postgresservice:
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-1234}
+      POSTGRES_DB: ${POSTGRES_DB:-bookinformationdb}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist data
+    networks:
+      - my_bookinfo_network
+
+volumes:
+  postgres_data:
+    driver: local # Using the default driver for local storage
+
+networks:
+  my_bookinfo_network:
+    driver: bridge
